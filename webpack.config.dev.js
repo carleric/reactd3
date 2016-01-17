@@ -17,11 +17,18 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin()
   ],
+  resolve: {
+    extensions: ['', '.js', '.jsx']
+  },
   module: {
     loaders: [{
-      test: /\.jsx?/,
+      test: /\js|\.jsx?/,
       loaders: ['babel'],
       include: path.join(__dirname, 'src')
+    },
+    {
+      test: /\.less$/,
+      loader: "style!css!less"
     }]
   }
 };
